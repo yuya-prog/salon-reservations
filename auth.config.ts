@@ -12,14 +12,14 @@ export const authConfig = {
 
       if (isOnAuthenticatedPage) {
         if (isLoggedIn) return true;
-
         if (!isLoggedIn) {
           // falseを返すと，Signinページにリダイレクトされる
           return false;
-        } else if (isLoggedIn) {
-          return Response.redirect(new URL("/dashboard", nextUrl));
         }
+      } else if (isLoggedIn) {
+        return Response.redirect(new URL("/dashboard", nextUrl));
       }
+
       return true;
     },
   },
